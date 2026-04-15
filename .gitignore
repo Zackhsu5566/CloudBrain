@@ -1,0 +1,50 @@
+# Secrets
+.env
+*.env
+
+# OpenClaw runtime
+.openclaw/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup state
+backup-config.json
+
+# Claude Code local settings
+.claude/
+
+# User-generated data (not part of the template)
+workspace/daily/*.md
+!workspace/daily/INDEX.md
+workspace/journal/*.md
+!workspace/journal/INDEX.md
+workspace/finance/*.md
+!workspace/finance/INDEX.md
+!workspace/finance/categories.md
+workspace/inbox/*.md
+!workspace/inbox/INDEX.md
+workspace/notes/*.md
+!workspace/notes/INDEX.md
+workspace/ideas/tech.md
+workspace/ideas/content.md
+workspace/ideas/research.md
+workspace/habits/exercise.md
+workspace/habits/food.md
+workspace/habits/sleep.md
+workspace/habits/weekly-stats.md
+workspace/archive/
+workspace/wiki/*.md
+!workspace/wiki/INDEX.md
+workspace/planning/future/*.md
+workspace/planning/monthly/*.md
+workspace/planning/weekly/*.md
+workspace/planning/daily/*.md
+!workspace/planning/INDEX.md
+workspace/business/reports/*.md
+workspace/cache.md

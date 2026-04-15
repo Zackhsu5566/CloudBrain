@@ -1,0 +1,60 @@
+{
+  "gateway": {
+    "mode": "local",
+    "bind": "loopback"
+  },
+
+  "tools": {
+    "profile": "full"
+  },
+
+  "memory": {
+    "backend": "builtin"
+  },
+
+  "channels": {
+    "telegram": {
+      "enabled": true
+    }
+  },
+
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "minimax/MiniMax-M2.7",
+        "fallbacks": [
+          "anthropic/claude-opus-4-6"
+        ]
+      },
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "1h"
+      },
+      "heartbeat": {
+        "every": "30m"
+      },
+      "compaction": {
+        "mode": "safeguard"
+      }
+    }
+  },
+
+  "hooks": {
+    "internal": {
+      "entries": {
+        "session-memory": {
+          "enabled": false
+        }
+      }
+    }
+  },
+
+  "plugins": {
+    "allow": [
+      "minimax",
+      "anthropic",
+      "memory-lancedb-pro",
+      "lossless-claw"
+    ]
+  }
+}
