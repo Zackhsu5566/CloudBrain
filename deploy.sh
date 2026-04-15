@@ -126,6 +126,15 @@ tune_memory_config() {
 
     # Applied AFTER plugin setup scripts run, so these override any defaults.
     # Disables noisy auto-capture behaviours and enables quality gates.
+    #
+    # NOTE: This creates plugins.entries alongside plugins.allow in the config.
+    # OpenClaw is expected to treat "allow" as the plugin whitelist and "entries"
+    # as per-plugin config overrides. If a future OpenClaw version changes this
+    # schema, this section may need updating.
+    #
+    # lossless-claw-enhanced is left with default settings (no entries here).
+    # To customize compression behavior, add a similar block:
+    #   .plugins.entries["lossless-claw-enhanced"].config.KEY = VALUE
     jq '
       .hooks = {"internal": {"entries": {"session-memory": {"enabled": false}}}}
       | .plugins.entries["memory-lancedb-pro"].config.captureAssistant = false

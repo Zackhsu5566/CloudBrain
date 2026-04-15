@@ -54,7 +54,7 @@
       "minimax",
       "anthropic",
       "memory-lancedb-pro",
-      "lossless-claw"
+      "lossless-claw-enhanced"
     ]
   }
 }

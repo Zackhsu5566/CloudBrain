@@ -23,6 +23,8 @@ CloudBrain ships with **Kila** — a life mentor agent that handles daily journa
 - **API Keys:** At least one LLM provider (e.g., MiniMax, Anthropic, OpenAI)
 - **SSH:** Public key configured for key-only authentication
 
+> **First time?** See [SETUP.md](SETUP.md) for a step-by-step guide on getting your Telegram bot, API keys, and VPS ready.
+
 ## Quick Start
 
 ```bash
@@ -92,6 +94,15 @@ Edit `config/openclaw.json` to configure your LLM providers:
 ```
 
 The default setup uses MiniMax-M2.7 (~$9/mo) for daily tasks and Claude Opus as a fallback for complex analysis. Adjust to your preferred providers.
+
+### Plugins
+
+| Plugin | Purpose | Docs |
+|--------|---------|------|
+| `memory-lancedb-pro` | Vector memory with semantic search | [github.com/openclaw-ai/plugin-memory-lancedb](https://github.com/openclaw-ai/plugin-memory-lancedb) |
+| `lossless-claw-enhanced` | Context compression (CJK-aware) | [github.com/openclaw-ai/plugin-lossless-claw](https://github.com/openclaw-ai/plugin-lossless-claw) |
+
+Plugin config is applied by `deploy.sh` step 6b. `lossless-claw-enhanced` uses defaults; `memory-lancedb-pro` is tuned for conservative admission control. See the plugin repos for available config options.
 
 ### Location & Timezone
 
