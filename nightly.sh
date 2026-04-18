@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Read timezone from HEARTBEAT.md, fallback to UTC
+WORKSPACE="${HOME}/.openclaw/workspace"
+CONFIGURED_TZ=$(grep -oP '^TIMEZONE=\K\S+' "$WORKSPACE/HEARTBEAT.md" 2>/dev/null || echo "UTC")
+export TZ="$CONFIGURED_TZ"
+
 LOCK_FILE="/tmp/cloud-brain-nightly.lock"
 LOG_DIR="$HOME/.openclaw/logs"
 LOG_FILE="$LOG_DIR/nightly.log"

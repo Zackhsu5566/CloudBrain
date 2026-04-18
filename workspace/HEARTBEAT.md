@@ -22,7 +22,7 @@ Every 30 minutes, the agent receives a heartbeat turn. It must:
 Before deploying, customize these values for your location:
 
 ```
-TIMEZONE=UTC+8                              # Your timezone
+TIMEZONE=Asia/Taipei                        # IANA timezone (e.g., America/New_York, Europe/London)
 CITY=YourCity                               # For weather (used with wttr.in)
 NEWS_SOURCE=https://www.npr.org             # Or your preferred news source
 AIR_QUALITY_API=                            # Optional: air quality API endpoint

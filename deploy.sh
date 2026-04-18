@@ -28,6 +28,12 @@ system_prep() {
     apt update && apt upgrade -y
     apt install -y curl git jq python3 python3-pip python3-venv
     ok "System packages installed"
+
+    # Set system timezone from HEARTBEAT.md config
+    local tz
+    tz=$(grep -oP '^TIMEZONE=\K\S+' "$SCRIPT_DIR/workspace/HEARTBEAT.md" 2>/dev/null || echo "UTC")
+    timedatectl set-timezone "$tz"
+    ok "System timezone set to $tz"
 }
 
 # ---- Step 2: Install OpenClaw ----

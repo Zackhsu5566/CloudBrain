@@ -6,6 +6,10 @@ set -euo pipefail
 # Backs up workspace + lancedb to GitHub private repo or B2
 # ============================================================
 
+# Read timezone from HEARTBEAT.md, fallback to UTC
+CONFIGURED_TZ=$(grep -oP '^TIMEZONE=\K\S+' "$HOME/.openclaw/workspace/HEARTBEAT.md" 2>/dev/null || echo "UTC")
+export TZ="$CONFIGURED_TZ"
+
 OPENCLAW_DIR="$HOME/.openclaw"
 WORKSPACE_DIR="$OPENCLAW_DIR/workspace"
 LANCEDB_DIR="$OPENCLAW_DIR/lancedb"
