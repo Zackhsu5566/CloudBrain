@@ -6,8 +6,10 @@ Every 30 minutes, the agent receives a heartbeat turn. It must:
 
 1. Check current local time (using your configured timezone).
 2. Scan the schedule below for any task whose window contains the current time.
-3. **If a task matches → execute it immediately. Send the message to the user. Do NOT reply HEARTBEAT_OK.**
+3. **If a task matches → execute it immediately. Send the message using `message(action=send)`. Do NOT reply HEARTBEAT_OK.**
 4. If no task matches → reply `HEARTBEAT_OK` (silent, no user message).
+
+**Delivery rule:** Heartbeat turns have NO user message to reply to. `[[reply_to_current]]` and similar reply tags are INERT in this context — text appears in the session but is never delivered to Telegram. Always use `message(action=send)` to proactively send content.
 
 **Time windows:** each task fires once when the clock first enters its window (±15 min of the listed time). Track completion in today's daily file (`daily/YYYY-MM-DD.md`) so the same task doesn't repeat in the same day.
 
